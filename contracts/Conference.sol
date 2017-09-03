@@ -10,7 +10,9 @@ contract Conference {
   event Refund(address _to, uint _amount);
 
   modifier onlyOrganizer() {
-    require(msg.sender == organizer);
+    if (msg .sender != organizer) {
+      return;
+    }
     _;
   }
 
