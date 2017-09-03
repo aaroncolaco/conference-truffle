@@ -47,6 +47,10 @@ contract Conference {
     }
   }
 
+  function getBalance() constant returns (uint) {
+    return this.balance;
+  }
+
   function destroy() { // so funds not locked in contract forever
     if (msg.sender == organizer) {
       selfdestruct(organizer); // send funds to organizer

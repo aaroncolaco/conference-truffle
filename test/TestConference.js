@@ -37,6 +37,16 @@ contract('Conference', (accounts) => {
           assert.equal(organizerAccount, account_zero, 'did not return organizer ' + account_zero);
         });
     });
+
+    it("should have balance `0`", () => {
+      return conferenceContract.deployed()
+        .then(instance => {
+          return instance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, 0, 'did not have balance `0`');
+        });
+    });
   });
 
   describe('check ticket purchase', () => {
@@ -70,6 +80,16 @@ contract('Conference', (accounts) => {
         });
     });
 
+    it("should have balance `20`", () => {
+      return conferenceContract.deployed()
+        .then(instance => {
+          return instance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, 20, 'did not have balance `20`');
+        });
+    });
+
     it("should increment `numRegistrants`", () => {
       return conferenceContract.deployed()
         .then(instance => {
@@ -79,6 +99,7 @@ contract('Conference', (accounts) => {
           assert.equal(numRegistrants, 1, 'did not increment `numRegistrants` after purchase');
         });
     });
+
   });
 
   describe('check quota update', () => {
@@ -119,6 +140,10 @@ contract('Conference', (accounts) => {
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amount => {
           assert.equal(amount, 20, 'should not have refunded amount');
+          return contractInstance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, `20`, 'should have balance `20`');
         });
     });
     it("others cannot refund full amount", () => {
@@ -131,6 +156,10 @@ contract('Conference', (accounts) => {
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amount => {
           assert.equal(amount, 20, 'should not have refunded amount');
+          return contractInstance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, `20`, 'should have balance `20`');
         });
     });
 
@@ -144,6 +173,10 @@ contract('Conference', (accounts) => {
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amountPaid => {
           assert.equal(amountPaid, 20, 'should not have refunded partial amount');
+          return contractInstance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, `20`, 'should have balance `20`');
         });
     });
 
@@ -157,7 +190,11 @@ contract('Conference', (accounts) => {
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amountPaid => {
           assert.equal(amountPaid, 0, 'should have refunded full amount');
-        });
+          return contractInstance.getBalance();
+        })
+        .then(balance => {
+          assert.equal(balance, `0`, 'should have balance `0`');
+        });;
     });
   });
 });
