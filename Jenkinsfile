@@ -1,6 +1,4 @@
 pipeline {
-    agent { docker 'node:6.3' }
-
     stages {
       stage('install npm modules') {
         steps {
