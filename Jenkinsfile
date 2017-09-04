@@ -18,6 +18,8 @@ pipeline {
             steps {
               timeout(time: 5, unit: 'MINUTES') {
                 sh 'bash test.sh'
+                currentBuild.result = 'SUCCESS'
+                return
               }
             }
         }
