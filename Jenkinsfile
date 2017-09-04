@@ -3,7 +3,9 @@ pipeline {
 
     stages {
       stage('install npm modules') {
-          sh 'npm install -g ethereumjs-testrpc truffle '
+        steps {
+            sh 'npm install -g ethereumjs-testrpc truffle '
+          }
         }
 
         stage('truffle compile') {
