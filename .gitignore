@@ -1,2 +1,12 @@
 # build directory
 build
+
+# node modules
+node_modules
+
+# test coverage folder
+coverage
+
+coverage.json
+
+package-lock.json
