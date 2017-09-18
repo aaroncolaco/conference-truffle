@@ -1,0 +1,35 @@
+{
+  "name": "conference",
+  "version": "1.0.0",
+  "description": "Basic conference contract using Truffle",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "coverage": "solidity-coverage",
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarongoa/conference-truffle.git"
+  },
+  "keywords": [
+    "ethereum",
+    "truffle",
+    "solidity",
+    "blockchain"
+  ],
+  "author": "Aaron Colaco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aarongoa/conference-truffle/issues"
+  },
+  "homepage": "https://github.com/aarongoa/conference-truffle#readme",
+  "devDependencies": {
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3",
+    "solidity-coverage": "^0.2.3"
+  }
+}
