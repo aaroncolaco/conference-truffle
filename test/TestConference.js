@@ -86,24 +86,24 @@ contract('Conference', (accounts) => {
   });
 
   describe('check quota update', () => {
-    it("owner can update quota", () => {
+    it("should allow owner to update quota", () => {
       return contractInstance.changeQuota(650)
         .then(transaction => contractInstance.quota.call())
         .then(quota => {
           assert.equal(quota, 650, 'did not update quota');
         });
     });
-    it("others cannot update quota", () => {
+    it("should not allow non owner to update quota", () => {
       return contractInstance.changeQuota(700, { from: account_one })
         .then(transaction => contractInstance.quota.call())
         .then(quota => {
-          assert.equal(quota, 650, 'did not update quota');
+          assert.equal(quota, 650, 'non owner updated quota');
         });
     });
   });
 
   describe('check refund', () => {
-    it("others cannot refund partial amount", () => {
+    it("should not allow non owner to refund partial amount", () => {
       return contractInstance.refundTicket(account_one, 10, { from: account_one })
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amount => {
@@ -114,7 +114,7 @@ contract('Conference', (accounts) => {
           assert.equal(balance, `20`, 'should have balance `20`');
         });
     });
-    it("others cannot refund full amount", () => {
+    it("should not allow non owner to refund full amount", () => {
       return contractInstance.refundTicket(account_one, 20, { from: account_one })
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amount => {
@@ -126,7 +126,7 @@ contract('Conference', (accounts) => {
         });
     });
 
-    it("organizer cannot refund partial amount", () => {
+    it("should not allow organizer(owner) to refund partial amount", () => {
       return contractInstance.refundTicket(account_one, 10)
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amountPaid => {
@@ -138,7 +138,7 @@ contract('Conference', (accounts) => {
         });
     });
 
-    it("organizer can refund full amount", () => {
+    it("should allow organizer to refund full amount", () => {
       return contractInstance.refundTicket(account_one, 20)
         .then(transaction => contractInstance.registrantsPaid(account_one))
         .then(amountPaid => {
