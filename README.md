@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/aarongoa/conference-truffle.svg?branch=master)](https://travis-ci.org/aarongoa/conference-truffle)
-[![Coverage Status](https://coveralls.io/repos/github/aarongoa/conference-truffle/badge.svg?branch=master)](https://coveralls.io/github/aarongoa/conference-truffle?branch=master)
+[![Build Status](https://travis-ci.org/aaroncolaco/conference-truffle.svg?branch=master)](https://travis-ci.org/aaroncolaco/conference-truffle)
+[![Coverage Status](https://coveralls.io/repos/github/aaroncolaco/conference-truffle/badge.svg?branch=master)](https://coveralls.io/github/aaroncolaco/conference-truffle?branch=master)
 
 # conference-truffle
 

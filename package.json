@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aarongoa/conference-truffle.git"
+    "url": "git+https://github.com/aaroncolaco/conference-truffle.git"
   },
   "keywords": [
     "ethereum",
@@ -23,9 +23,9 @@
   "author": "Aaron Colaco",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aarongoa/conference-truffle/issues"
+    "url": "https://github.com/aaroncolaco/conference-truffle/issues"
   },
-  "homepage": "https://github.com/aarongoa/conference-truffle#readme",
+  "homepage": "https://github.com/aaroncolaco/conference-truffle#readme",
   "devDependencies": {
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
