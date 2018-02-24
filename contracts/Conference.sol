@@ -39,8 +39,8 @@ contract Conference {
     if (registrantsPaid[recipient] == amount) {
       address myAddress = this;
       if (myAddress.balance >= amount) {
-        recipient.transfer(amount);
         registrantsPaid[recipient] = 0;
+        recipient.transfer(amount);
         numRegistrants--;
         Refund(recipient, amount);
       }
