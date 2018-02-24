@@ -16,7 +16,7 @@ contract Conference {
     _;
   }
 
-  function Conference() {
+  function Conference() public {
     organizer = msg.sender;
     quota = 500;
     numRegistrants = 0;
@@ -47,11 +47,11 @@ contract Conference {
     }
   }
 
-  function getBalance() constant returns (uint) {
+  function getBalance() public constant returns (uint) {
     return this.balance;
   }
 
-  function destroy() { // so funds not locked in contract forever
+  function destroy() public { // so funds not locked in contract forever
     if (msg.sender == organizer) {
       selfdestruct(organizer); // send funds to organizer
     }
